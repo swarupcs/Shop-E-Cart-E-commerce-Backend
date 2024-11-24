@@ -1,59 +1,40 @@
+const { StatusCodes, ReasonPhrases } = require("http-status-codes");
+
 const BadRequest = require("../errors/bad_request_error");
 const errorResponse = require("../utils/error_response");
 
 function createProductValidator(req, res, next) {
   if (!req.body.title) {
     return res
-      .status(400)
-      .json(
-        errorResponse(
-          "Title not present in the incoming request",
-          new BadRequest("Title")
-        )
-      );
+      .status(StatusCodes.BAD_REQUEST)
+      .json(errorResponse(ReasonPhrases.BAD_REQUEST, new BadRequest("Title")));
   }
 
   if (!req.body.description) {
-    return res 
-      .status(400)
+    return res
+      .status(StatusCodes.BAD_REQUEST)
       .json(
-        errorResponse(
-          "description not present in the incoming request",
-          new BadRequest("Description")
-        )
+        errorResponse(ReasonPhrases.BAD_REQUEST, new BadRequest("Description"))
       );
   }
 
   if (!req.body.price) {
     return res
-      .status(400)
-      .json(
-        errorResponse(
-          "Price not present in the incoming request",
-          new BadRequest("Price")
-        )
-      );
+      .status(StatusCodes.BAD_REQUEST)
+      .json(errorResponse(ReasonPhrases.BAD_REQUEST, new BadRequest("Price")));
   }
 
   if (!req.body.image) {
     return res
-      .status(400)
-      .json(
-        errorResponse(
-          "Image not present in the incoming request",
-          new BadRequest("Image")
-        )
-      );
+      .status(StatusCodes.BAD_REQUEST)
+      .json(errorResponse(ReasonPhrases.BAD_REQUEST, new BadRequest("Image")));
   }
 
   if (!req.body.category) {
     return res
-      .status(400)
+      .status(StatusCodes.BAD_REQUEST)
       .json(
-        errorResponse(
-          "Category not present in the incoming request",
-          new BadRequest("Category")
-        )
+        errorResponse(ReasonPhrases.BAD_REQUEST, new BadRequest("Category"))
       );
   }
 
