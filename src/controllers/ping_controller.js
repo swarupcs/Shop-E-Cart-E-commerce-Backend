@@ -3,6 +3,7 @@ function pingController(request, response) {
 }
 
 function pingControllerV2(request, response) {
+  console.log("Controller hit");
   return response.json({ message: "OK from V2 API" });
 }
 
