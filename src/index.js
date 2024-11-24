@@ -25,7 +25,7 @@ app.use("/api", ApiRouter); // if any req comes with url starting with /api
 
 app.listen(PORT, async () => {
   console.log(`Server for Shopcart is Up ${PORT}`);
-  await db.sync();
+  await db.sync({ alter: true });
   console.log("DB Connected");
   // const res = await Category.create({
   //     name: 'Electronics',
