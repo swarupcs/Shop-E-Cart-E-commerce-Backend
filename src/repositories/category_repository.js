@@ -29,6 +29,19 @@ class CategoryRepository {
       console.log(error);
     }
   }
+
+  async destroyCategory(categoryId) {
+    try {
+      const response = await Category.destroy({
+        where: {
+          id: categoryId,
+        },
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 module.exports = CategoryRepository;
