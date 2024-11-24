@@ -1,10 +1,13 @@
 const { StatusCodes, ReasonPhrases } = require("http-status-codes");
 
 const ProductService = require("../services/product_service");
+const FakeStoreRepository = require("../repositories/fake_store_repository");
+
+const productService = new ProductService(new FakeStoreRepository());
 
 function createProduct(req, res) {
   try {
-    const response = ProductService.createProduct(req.body);
+    const response = productService.createProduct(req.body);
 
     return res.status(StatusCodes.CREATED).json({
       sucess: true,
@@ -17,9 +20,9 @@ function createProduct(req, res) {
   }
 }
 
-function getProducts(req, res) {
+async function getProducts(req, res) {
   try {
-    const response = ProductService.getProducts();
+    const response = await productService.getProducts();
     return res.status(StatusCodes.OK).json({
       sucess: true,
       error: {},
