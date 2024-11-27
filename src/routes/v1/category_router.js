@@ -5,6 +5,7 @@ const {
   getAllCategories,
   getCategory,
   destroyCategory,
+  getProductsForCategory,
 } = require("../../controllers/category_controller");
 const {
   createCategoryValidator,
@@ -17,6 +18,7 @@ categoryRouter.post("/", createCategoryValidator, createCategory); // mapping a 
 categoryRouter.get("/", getAllCategories);
 categoryRouter.get("/:id", getCategory);
 categoryRouter.delete("/:id", destroyCategory);
+categoryRouter.get("/:id/products", getProductsForCategory);
 
 // GET /api/v1/categories/:id ->
 // GET /api/v1/categories -> all categories
