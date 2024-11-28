@@ -1,12 +1,14 @@
 const express = require("express");
 
+const { CategoryController } = require("../../controllers/index");
+
 const {
   createCategory,
   getAllCategories,
   getCategory,
   destroyCategory,
   getProductsForCategory,
-} = require("../../controllers/category_controller");
+} = CategoryController;
 const {
   createCategoryValidator,
 } = require("../../middlewares/category_middleware");
