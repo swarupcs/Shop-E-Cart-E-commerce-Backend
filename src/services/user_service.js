@@ -2,14 +2,13 @@ const BadRequest = require("../errors/bad_request_error");
 const ConflictError = require("../errors/conflict_error");
 const InternalServerError = require("../errors/internal_server_error");
 const NotFoundError = require("../errors/not_found_error");
-
 const bcrypt = require("bcrypt");
 const UnauthorizedError = require("../errors/unauthorized_error");
 const { generateJWT } = require("../utils/auth");
-
 class UserService {
-  constructor(respository) {
+  constructor(respository, cartRepository) {
     this.respository = respository;
+    this.cartRepository = cartRepository;
   }
 
   async createUser(user) {
@@ -18,6 +17,7 @@ class UserService {
         user.email,
         user.password
       );
+      await this.cartRepository.createCart(response.id);
       return response;
     } catch (error) {
       console.log("UserService: ", error.name);

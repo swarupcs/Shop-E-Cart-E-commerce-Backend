@@ -13,8 +13,7 @@ Category.hasMany(Product, { foreignKey: "categoryId" });
 // User has one cart
 
 User.hasOne(Cart);
-Cart.belongsTo(User, {foreignKey: 'userId'});
-
+Cart.belongsTo(User, { foreignKey: "userId" });
 
 // Many to Many mapping between cart and products
 // Cart has many products through cart_products
@@ -26,4 +25,6 @@ module.exports = {
   Product,
   Category,
   User,
+  Cart,
+  CartProducts,
 };
