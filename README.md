@@ -41,3 +41,10 @@ Res Body
 
 ## Feature 1:
 Implement an error handling class for Unauthorised request
+
+
+# TODO 3:
+## Feature
+
+Think about how can we add more filters to the getProducts api, like brand, category etc
+
