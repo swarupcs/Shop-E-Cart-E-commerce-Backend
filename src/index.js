@@ -33,6 +33,7 @@ app.listen(PORT, async () => {
     await db.sync();
   }
   console.log("DB Connected");
+
   // const c = await Category.findByPk(2);
 
   // console.log(c);
