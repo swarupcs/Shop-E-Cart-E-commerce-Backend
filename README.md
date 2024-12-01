@@ -48,3 +48,12 @@ Implement an error handling class for Unauthorised request
 
 Think about how can we add more filters to the getProducts api, like brand, category etc
 
+
+# TODO 4:
+## Feature
+
+- Create an api that can change the status of an order
+
+- Create an api to fetch order details 
+
+- Few middlewares are pending
