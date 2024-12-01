@@ -8,7 +8,7 @@ const ApiRouter = require("./routes/api_router");
 
 const db = require("./config/db_config");
 const { User } = require("./models");
-const { Cart } = require("./models");
+const { Order, Product, OrderProducts } = require("./models");
 
 const app = express();
 
